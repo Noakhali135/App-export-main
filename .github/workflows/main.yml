@@ -1,0 +1,17 @@
+name: Interactive Cloud Workspace WebUI
+
+on:
+  workflow_dispatch: # Allows you to start it manually whenever you want
+
+jobs:
+  interactive-session:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone Repository Files
+        uses: actions/checkout@v4
+
+      - name: Launch Interactive Live Browser Terminal
+        uses: mxschmitt/action-tmate@v3
+        with:
+          detached: false
