@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<title>CodeForge IDE | Material You Mobile</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght=100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-kotlin.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-groovy.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
-<script id="tailwind-config">
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>CodeForge IDE | Material You Mobile</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-groovy.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
         theme: {
@@ -98,16 +99,13 @@
                     "code-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
                     "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500"}],
                     "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
-                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "400"}],
-                    "screens": {
-                        "xs": "360px"
-                    }
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "400"}]
             }
           },
         },
       }
     </script>
-<style>
+    <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
             user-select: none;
@@ -144,6 +142,7 @@
             outline: none;
         }
         
+        /* Disable interaction styling */
         .editor-readonly {
             pointer-events: none;
             user-select: none;
@@ -152,99 +151,104 @@
     </style>
 </head>
 <body class="bg-background text-on-surface font-body-md text-body-md overflow-hidden">
-<header class="fixed top-0 w-full z-40 bg-surface-container flex items-center justify-between px-margin-mobile h-toolbar-height transition-colors" id="top-app-bar">
-<div class="flex items-center gap-4">
-<button class="p-2 rounded-full hover:bg-surface-variant transition-colors active:scale-95 duration-100" onclick="toggleDrawer()">
-<span class="material-symbols-outlined text-primary">menu</span>
-</button>
-<span class="font-headline-sm text-headline-sm font-bold text-primary truncate max-w-[120px] sm:max-w-none">CodeForge</span>
-</div>
-<div class="flex items-center gap-1 sm:gap-2">
-<button class="flex items-center gap-1 px-3 py-1.5 rounded-full hover:bg-surface-variant text-primary transition-colors active:scale-95 duration-100" onclick="saveActiveFile()">
-<span class="material-symbols-outlined text-[20px]">save</span>
-<span class="text-label-sm font-label-sm hidden xs:inline">Save</span>
-</button>
-<button class="flex items-center gap-1 px-3 py-1.5 rounded-full hover:bg-surface-variant text-tertiary transition-colors active:scale-95 duration-100" onclick="triggerGitHubSync()">
-<span class="material-symbols-outlined text-[20px]">cloud_upload</span>
-<span class="text-label-sm font-label-sm hidden xs:inline">Push</span>
-</button>
-<button class="p-2 rounded-full hover:bg-surface-variant transition-colors active:scale-95 duration-100" onclick="toggleTerminal()">
-<span class="material-symbols-outlined text-primary">terminal</span>
-</button>
-</div>
-</header>
-<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface-container-low dark:bg-surface-container-low rounded-r-xl z-50 shadow-md transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col py-4" id="nav-drawer">
-<div class="px-6 mb-4 flex justify-between items-center">
-<h2 class="font-headline-sm text-headline-sm text-on-surface">Explorer</h2>
-<button class="p-2 rounded-full hover:bg-surface-variant" onclick="toggleDrawer()">
-<span class="material-symbols-outlined">close</span>
-</button>
-</div>
-<div class="flex-1 overflow-y-auto px-2 space-y-1" id="file-tree">
-</div>
-</aside>
-<div class="fixed inset-0 bg-black/60 z-45 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-[2px]" id="drawer-overlay" onclick="toggleDrawer(false)"></div>
-<main class="pt-toolbar-height flex flex-col w-full h-full relative" id="main-canvas">
-<div class="flex overflow-x-auto scrollbar-hide bg-surface border-b border-outline-variant shrink-0 h-12" id="tab-bar">
-</div>
-<div class="flex-1 relative overflow-hidden flex flex-col" id="editor-wrapper">
-<div class="absolute inset-0 flex flex-col items-center justify-center text-on-surface-variant p-8 text-center space-y-4" id="empty-state">
-<span class="material-symbols-outlined text-6xl opacity-20">code_blocks</span>
-<p class="font-title-md text-title-md">No files open</p>
-<p class="font-body-md text-body-md">Select a file from the explorer to start building.</p>
-<button class="px-6 py-2 bg-primary-container text-on-primary-container rounded-full font-label-sm" onclick="toggleDrawer()">
+    <header class="fixed top-0 w-full z-40 bg-surface-container flex items-center justify-between px-margin-mobile h-toolbar-height transition-colors" id="top-app-bar">
+        <div class="flex items-center gap-4">
+            <button class="p-2 rounded-full hover:bg-surface-variant transition-colors active:scale-95 duration-100" onclick="toggleDrawer()">
+                <span class="material-symbols-outlined text-primary">menu</span>
+            </button>
+            <span class="font-headline-sm text-headline-sm font-bold text-primary truncate max-w-[150px] sm:max-w-none">CodeForge</span>
+        </div>
+        <div class="flex items-center gap-1 sm:gap-2">
+            <button class="flex items-center gap-1 px-3 py-1.5 rounded-full hover:bg-surface-variant text-primary transition-colors active:scale-95 duration-100" onclick="saveActiveFile()">
+                <span class="material-symbols-outlined text-[20px]">save</span>
+                <span class="text-label-sm font-label-sm hidden xs:inline">Save</span>
+            </button>
+            <button class="p-2 rounded-full hover:bg-surface-variant transition-colors active:scale-95 duration-100" onclick="toggleTerminal()">
+                <span class="material-symbols-outlined text-primary">terminal</span>
+            </button>
+        </div>
+    </header>
+
+    <aside class="fixed left-0 top-0 h-full w-[280px] bg-surface-container-low dark:bg-surface-container-low rounded-r-xl z-50 shadow-md transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col py-4" id="nav-drawer">
+        <div class="px-6 mb-4 flex justify-between items-center">
+            <h2 class="font-headline-sm text-headline-sm text-on-surface">Explorer</h2>
+            <button class="p-2 rounded-full hover:bg-surface-variant" onclick="toggleDrawer()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="flex-1 overflow-y-auto px-2 space-y-1" id="file-tree">
+            </div>
+    </aside>
+
+    <div class="fixed inset-0 bg-black/60 z-45 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-[2px]" id="drawer-overlay" onclick="toggleDrawer(false)"></div>
+
+    <main class="pt-toolbar-height flex flex-col w-full h-full relative" id="main-canvas">
+        <div class="flex overflow-x-auto scrollbar-hide bg-surface border-b border-outline-variant shrink-0 h-12" id="tab-bar">
+            </div>
+        <div class="flex-1 relative overflow-hidden flex flex-col" id="editor-wrapper">
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-on-surface-variant p-8 text-center space-y-4" id="empty-state">
+                <span class="material-symbols-outlined text-6xl opacity-20">code_blocks</span>
+                <p class="font-title-md text-title-md">No files open</p>
+                <p class="font-body-md text-body-md">Select a file from the explorer to start building.</p>
+                <button class="px-6 py-2 bg-primary-container text-on-primary-container rounded-full font-label-sm" onclick="toggleDrawer()">
                     Open Explorer
                 </button>
-</div>
-<div class="hidden flex-1 overflow-auto bg-surface p-editor-padding font-code-md text-code-md outline-none whitespace-pre" contenteditable="true" id="code-editor" oninput="handleCodeInput(event)" spellcheck="false"></div>
-</div>
-</main>
-<button class="fixed bottom-10 right-6 w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-xl flex items-center justify-center z-30 active:scale-90 transition-transform" id="fab-run" onclick="runBuild()">
-<span class="material-symbols-outlined text-3xl">play_arrow</span>
-</button>
-<div class="fixed inset-0 z-45 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300" id="terminal-backdrop" onclick="closeTerminal()"></div>
-<div class="fixed inset-x-0 bottom-0 z-50 transform translate-y-full transition-transform duration-300 ease-in-out bg-surface-container-highest rounded-t-[28px] shadow-2xl h-[353px] flex flex-col" id="terminal-sheet">
-<div class="flex items-center justify-center pt-3 pb-2 cursor-pointer" onclick="closeTerminal()">
-<div class="w-8 h-1 bg-outline-variant rounded-full"></div>
-</div>
-<div class="px-6 py-2 border-b border-outline-variant flex justify-between items-center">
-<span class="font-title-md text-title-md text-on-surface-variant flex items-center gap-2">
-<span class="material-symbols-outlined text-[18px]">terminal</span> Terminal Output
+            </div>
+            <div class="hidden flex-1 overflow-auto bg-surface p-editor-padding font-code-md text-code-md outline-none whitespace-pre" contenteditable="true" id="code-editor" oninput="handleCodeInput(event)" spellcheck="false"></div>
+        </div>
+    </main>
+
+    <button class="fixed bottom-10 right-6 w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-xl flex items-center justify-center z-30 active:scale-90 transition-transform" id="fab-run" onclick="runBuild()">
+        <span class="material-symbols-outlined text-3xl">play_arrow</span>
+    </button>
+
+    <div class="fixed inset-0 z-45 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300" id="terminal-backdrop" onclick="closeTerminal()"></div>
+
+    <div class="fixed inset-x-0 bottom-0 z-50 transform translate-y-full transition-transform duration-300 ease-in-out bg-surface-container-highest rounded-t-[28px] shadow-2xl h-[353px] flex flex-col" id="terminal-sheet">
+        <div class="flex items-center justify-center pt-3 pb-2 cursor-pointer" onclick="closeTerminal()">
+            <div class="w-8 h-1 bg-outline-variant rounded-full"></div>
+        </div>
+        <div class="px-6 py-2 border-b border-outline-variant flex justify-between items-center">
+            <span class="font-title-md text-title-md text-on-surface-variant flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">terminal</span> Terminal
             </span>
-<button class="p-1 rounded-full hover:bg-surface-variant" onclick="closeTerminal()">
-<span class="material-symbols-outlined">expand_more</span>
-</button>
-</div>
-<div class="flex-1 overflow-y-auto p-4 font-code-sm text-code-sm bg-surface-container-lowest text-secondary selection:bg-secondary-container" id="terminal-output">
-</div>
-</div>
-<div class="fixed inset-0 z-[55] bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300" id="context-backdrop" onclick="closeContextMenu()"></div>
-<div class="fixed inset-x-0 bottom-0 z-[60] transform translate-y-full transition-transform duration-300 ease-in-out bg-surface-container rounded-t-[28px] shadow-2xl pb-8" id="context-sheet">
-<div class="flex items-center justify-center pt-3 pb-4">
-<div class="w-8 h-1 bg-outline-variant rounded-full"></div>
-</div>
-<div class="px-6 mb-4" id="context-header">
-<h3 class="font-title-md text-title-md text-on-surface" id="context-title">File Options</h3>
-<p class="text-label-sm font-label-sm text-on-surface-variant" id="context-subtitle">/app/src/main/java/Main.kt</p>
-</div>
-<div class="flex flex-col" id="context-actions">
-</div>
-</div>
-<div class="fixed inset-0 z-[100] flex items-center justify-center hidden" id="generic-modal">
-<div class="absolute inset-0 bg-black/60" id="modal-backdrop" onclick="closeModal()"></div>
-<div class="bg-surface-container-high rounded-[28px] p-6 w-[85%] max-w-sm z-10 shadow-2xl relative">
-<h3 class="font-headline-sm text-headline-sm mb-4 text-on-surface" id="modal-title">New File</h3>
-<div id="modal-content-area">
-<input class="w-full bg-surface-variant border-b-2 border-primary rounded-t-lg px-4 py-3 outline-none text-on-surface focus:border-primary-container transition-colors" id="modal-input" placeholder="filename.kt" type="text"/>
-<p class="mt-2 text-body-md text-on-surface-variant hidden" id="modal-description"></p>
-</div>
-<div class="flex justify-end gap-2 mt-6">
-<button class="px-4 py-2 text-primary font-label-sm rounded-full hover:bg-surface-variant" id="modal-cancel-btn" onclick="closeModal()">Cancel</button>
-<button class="px-6 py-2 bg-primary text-on-primary font-label-sm rounded-full hover:bg-opacity-90" id="modal-confirm">Confirm</button>
-</div>
-</div>
-</div>
-<script>
+            <button class="p-1 rounded-full hover:bg-surface-variant" onclick="closeTerminal()">
+                <span class="material-symbols-outlined">expand_more</span>
+            </button>
+        </div>
+        <div class="flex-1 overflow-y-auto p-4 font-code-sm text-code-sm bg-surface-container-lowest text-secondary selection:bg-secondary-container" id="terminal-output"></div>
+    </div>
+
+    <div class="fixed inset-0 z-[55] bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300" id="context-backdrop" onclick="closeContextMenu()"></div>
+
+    <div class="fixed inset-x-0 bottom-0 z-[60] transform translate-y-full transition-transform duration-300 ease-in-out bg-surface-container rounded-t-[28px] shadow-2xl pb-8" id="context-sheet">
+        <div class="flex items-center justify-center pt-3 pb-4">
+            <div class="w-8 h-1 bg-outline-variant rounded-full"></div>
+        </div>
+        <div class="px-6 mb-4" id="context-header">
+            <h3 class="font-title-md text-title-md text-on-surface" id="context-title">File Options</h3>
+            <p class="text-label-sm font-label-sm text-on-surface-variant" id="context-subtitle">/app/src/main/java/Main.kt</p>
+        </div>
+        <div class="flex flex-col" id="context-actions">
+            </div>
+    </div>
+
+    <div class="fixed inset-0 z-[100] flex items-center justify-center hidden" id="generic-modal">
+        <div class="absolute inset-0 bg-black/60" id="modal-backdrop" onclick="closeModal()"></div>
+        <div class="bg-surface-container-high rounded-[28px] p-6 w-[85%] max-w-sm z-10 shadow-2xl relative">
+            <h3 class="font-headline-sm text-headline-sm mb-4 text-on-surface" id="modal-title">New File</h3>
+            <div id="modal-content-area">
+                <input class="w-full bg-surface-variant border-b-2 border-primary rounded-t-lg px-4 py-3 outline-none text-on-surface focus:border-primary-container transition-colors" id="modal-input" placeholder="filename.kt" type="text"/>
+                <p class="mt-2 text-body-md text-on-surface-variant hidden" id="modal-description"></p>
+            </div>
+            <div class="flex justify-end gap-2 mt-6">
+                <button class="px-4 py-2 text-primary font-label-sm rounded-full hover:bg-surface-variant" id="modal-cancel-btn" onclick="closeModal()">Cancel</button>
+                <button class="px-6 py-2 bg-primary text-on-primary font-label-sm rounded-full hover:bg-opacity-90" id="modal-confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
         const SVGS = {
             folder: `<svg viewBox="0 0 24 24" fill="none" class="file-icon-svg"><path d="M10 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V8C22 6.9 21.1 6 20 6H12L10 4Z" fill="#D0BCFF"/></svg>`,
             kotlin: `<svg viewBox="0 0 24 24" fill="none" class="file-icon-svg"><path d="M24 24H0V0H24L12 12L24 24Z" fill="url(#kotlin-grad)"/><defs><linearGradient id="kotlin-grad" x1="24" y1="0" x2="0" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#7F52FF"/><stop offset="0.5" stop-color="#C711E1"/><stop offset="1" stop-color="#E44857"/></linearGradient></defs></svg>`,
@@ -265,7 +269,38 @@
         };
 
         const state = {
-            files: [],
+            files: [
+                { id: '1', name: 'app', isFolder: true, isOpen: true, path: 'app', children: [
+                    { id: '2', name: 'src', isFolder: true, isOpen: true, path: 'app/src', children: [
+                        { id: '3', name: 'main', isFolder: true, isOpen: true, path: 'app/src/main', children: [
+                            { id: '4', name: 'java', isFolder: true, isOpen: true, path: 'app/src/main/java', children: [
+                                { id: '5', name: 'com', isFolder: true, isOpen: true, path: 'app/src/main/java/com', children: [
+                                    { id: '6', name: 'codeforge', isFolder: true, isOpen: true, path: 'app/src/main/java/com/codeforge', children: [
+                                        { id: '7', name: 'ide', isFolder: true, isOpen: true, path: 'app/src/main/java/com/codeforge/ide', children: [
+                                            { id: '8', name: 'MainActivity.kt', isFolder: false, content: 'package com.codeforge.ide\n\nimport android.os.Bundle\nimport androidx.appcompat.app.AppCompatActivity\n\nclass MainActivity : AppCompatActivity() {\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_main)\n    }\n}', path: 'app/src/main/java/com/codeforge/ide/MainActivity.kt' }
+                                        ]}
+                                    ]}
+                                ]}
+                            ]},
+                            { id: '9', name: 'res', isFolder: true, isOpen: true, path: 'app/src/main/res', children: [
+                                { id: '10', name: 'layout', isFolder: true, isOpen: true, path: 'app/src/main/res/layout', children: [
+                                    { id: '11', name: 'activity_main.xml', isFolder: false, content: '<?xml version="1.0" encoding="utf-8"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"\n    android:layout_width="match_parent"\n    android:layout_height="match_parent">\n\n    <TextView\n        android:layout_width="wrap_content"\n        android:layout_height="wrap_content"\n        android:text="Hello CodeForge!" />\n\n</androidx.constraintlayout.widget.ConstraintLayout>', path: 'app/src/main/res/layout/activity_main.xml' }
+                                ]},
+                                { id: '12', name: 'values', isFolder: true, isOpen: false, path: 'app/src/main/res/values', children: [
+                                    { id: '13', name: 'colors.xml', isFolder: false, content: '<?xml version="1.0" encoding="utf-8"?>\n<resources>\n    <color name="primary">#D0BCFF</color>\n</resources>', path: 'app/src/main/res/values/colors.xml' },
+                                    { id: '14', name: 'strings.xml', isFolder: false, content: '<resources>\n    <string name="app_name">CodeForge IDE</string>\n</resources>', path: 'app/src/main/res/values/strings.xml' }
+                                ]}
+                            ]},
+                            { id: '15', name: 'AndroidManifest.xml', isFolder: false, content: '<manifest xmlns:android="http://schemas.android.com/apk/res/android"\n    package="com.codeforge.ide">\n</manifest>', path: 'app/src/main/AndroidManifest.xml' }
+                        ]}
+                    ]},
+                    { id: '16', name: 'build.gradle.kts', isFolder: false, content: 'plugins {\n    id("com.android.application")\n}', path: 'app/build.gradle.kts' }
+                ]},
+                { id: '17', name: 'gradle', isFolder: true, isOpen: false, path: 'gradle', children: [] },
+                { id: '18', name: 'build.gradle.kts', isFolder: false, content: '// Root build script', path: 'build.gradle.kts' },
+                { id: '19', name: 'settings.gradle.kts', isFolder: false, content: 'rootProject.name = "CodeForgeProject"\ninclude(":app")', path: 'settings.gradle.kts' },
+                { id: '20', name: 'README.md', isFolder: false, content: '# CodeForge Project\nAn Android project built with the mobile IDE.', path: 'README.md' }
+            ],
             openTabs: [],
             activeTabId: null,
             isDrawerOpen: false,
@@ -295,6 +330,7 @@
             }
         }
 
+        // Interaction Guard: Blocks editor when UI overlays are active
         function updateEditorReadOnly() {
             const editor = document.getElementById('code-editor');
             const shouldBeReadOnly = state.isDrawerOpen || state.isTerminalOpen || state.isModalOpen || state.isContextMenuOpen;
@@ -351,25 +387,9 @@
             setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, 2000);
         }
 
-        async function loadSystemWorkspace() {
-            try {
-                const response = await fetch('/api/files');
-                const data = await response.json();
-                if (data.success) {
-                    state.files = data.files;
-                    renderFileTree();
-                } else {
-                    showSnackbar("Failed to fetch repository layout components.");
-                }
-            } catch (err) {
-                showSnackbar("Error maps connecting to core action agent API.");
-            }
-        }
-
         function renderFileTree() {
             const treeEl = document.getElementById('file-tree');
             treeEl.innerHTML = '';
-            
             function createNode(file, depth = 0) {
                 const container = document.createElement('div');
                 const paddingLeft = depth * 12 + 8;
@@ -393,7 +413,6 @@
                 item.appendChild(iconContainer);
                 item.appendChild(label);
                 item.appendChild(moreBtn);
-                
                 item.onclick = () => {
                     if (file.isFolder) {
                         file.isOpen = !file.isOpen;
@@ -410,17 +429,6 @@
                 return container;
             }
             state.files.sort((a, b) => (b.isFolder - a.isFolder) || a.name.localeCompare(b.name)).forEach(file => treeEl.appendChild(createNode(file)));
-        }
-
-        function findFileInTree(nodes, id) {
-            for (let n of nodes) {
-                if (n.id === id) return n;
-                if (n.children) {
-                    const found = findFileInTree(n.children, id);
-                    if (found) return found;
-                }
-            }
-            return null;
         }
 
         function openFile(file) {
@@ -474,30 +482,26 @@
             renderEditor();
         }
 
-        async function saveActiveFile() {
+        function saveActiveFile() {
             const tab = state.openTabs.find(t => t.id === state.activeTabId);
             if (!tab) return;
             
-            try {
-                const response = await fetch('/api/save', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ filePath: tab.path, content: tab.content })
-                });
-                const result = await response.json();
-                if (result.success) {
-                    const coreFile = findFileInTree(state.files, tab.id);
-                    if (coreFile) coreFile.content = tab.content;
-                    tab.dirty = false;
-                    tab.originalContent = tab.content;
-                    renderTabs();
-                    showSnackbar("File saved to build container.");
-                } else {
-                    showSnackbar("Error: " + result.error);
+            const updateFileInTree = (arr) => {
+                for (let f of arr) {
+                    if (f.id === tab.id) {
+                        f.content = tab.content;
+                        return true;
+                    }
+                    if (f.children && updateFileInTree(f.children)) return true;
                 }
-            } catch (err) {
-                showSnackbar("Network disconnect saving transaction data.");
-            }
+                return false;
+            };
+            
+            updateFileInTree(state.files);
+            tab.dirty = false;
+            tab.originalContent = tab.content;
+            renderTabs();
+            showSnackbar("File Saved");
         }
 
         function renderEditor() {
@@ -525,7 +529,6 @@
         function runBuild() {
             if (state.isBuilding) return;
             state.isBuilding = true;
-            
             const terminal = document.getElementById('terminal-sheet');
             const backdrop = document.getElementById('terminal-backdrop');
             const output = document.getElementById('terminal-output');
@@ -537,57 +540,53 @@
             
             output.innerHTML = '<div class="text-primary">> gradlew assembleDebug</div>';
             
-            // Server-Sent Events to stream terminal outputs live from Runner
-            const eventSource = new EventSource('/api/build');
+            const logs = [
+                "> Task :app:preBuild UP-TO-DATE",
+                "> Task :app:generateDebugBuildConfig",
+                "> Task :app:compileDebugKotlin",
+                "[KOTLIN] Using kotlin-stdlib from project classpath",
+                "[KOTLIN] Compiling 1 source files...",
+                "> Task :app:mergeDebugResources",
+                "> Task :app:assembleDebug",
+                "BUILD SUCCESSFUL in 4s",
+                "COMPILE SUCCESSFUL"
+            ];
             
-            eventSource.onmessage = function(event) {
-                const data = JSON.parse(event.data);
-                if (data.log) {
-                    const p = document.createElement('div');
-                    p.innerText = data.log;
-                    if (data.log.includes('SUCCESSFUL')) p.className = 'text-tertiary font-bold mt-2';
-                    if (data.log.includes('❌') || data.log.includes('FAILED')) p.className = 'text-error font-bold mt-2';
-                    output.appendChild(p);
-                    output.scrollTop = output.scrollHeight;
-                }
-                if (data.status) {
-                    eventSource.close();
-                    state.isBuilding = false;
-                    loadSystemWorkspace(); // Refresh tree view to display generated builds
-                }
-            };
-
-            eventSource.onerror = function() {
-                eventSource.close();
-                state.isBuilding = false;
-                const p = document.createElement('div');
-                p.className = 'text-error font-bold mt-2';
-                p.innerText = '❌ Terminal logging connection broke pipeline parameters.';
-                output.appendChild(p);
-            };
-        }
-
-        function triggerGitHubSync() {
-            showWarningDialog(
-                "Push directly to GitHub",
-                "This commits all saved files and pushes modifications immediately up to your GitHub branch repository.",
-                "Execute Push",
-                async () => {
-                    closeModal();
-                    showSnackbar("Push engine initiated...");
-                    try {
-                        const response = await fetch('/api/sync-github', { method: 'POST' });
-                        const res = await response.json();
-                        if (res.success) {
-                            showSnackbar("Repository synchronized successfully!");
-                        } else {
-                            showSnackbar("Sync failed: " + res.error);
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < logs.length) {
+                    const line = logs[i];
+                    if (line === "COMPILE SUCCESSFUL") {
+                        let outputsDir = state.files.find(f => f.name === 'outputs');
+                        if (!outputsDir) {
+                            outputsDir = { id: 'outputs_folder', name: 'outputs', isFolder: true, isOpen: true, children: [], path: 'outputs' };
+                            state.files.push(outputsDir);
                         }
-                    } catch (e) {
-                        showSnackbar("Failed to execute origin push operations.");
+                        
+                        const apkExists = outputsDir.children.find(f => f.name === 'app-debug.apk');
+                        if (!apkExists) {
+                            outputsDir.children.push({
+                                id: 'apk_file_' + Date.now(),
+                                name: 'app-debug.apk',
+                                path: 'outputs/app-debug.apk',
+                                isFolder: false,
+                                content: 'APK Binary Content Placeholder'
+                            });
+                        }
+                        renderFileTree();
+                    } else {
+                        const p = document.createElement('div');
+                        p.innerText = line;
+                        if (line.includes('SUCCESSFUL')) p.className = 'text-tertiary font-bold mt-2';
+                        output.appendChild(p);
+                        output.scrollTop = output.scrollHeight;
                     }
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    state.isBuilding = false;
                 }
-            );
+            }, 500);
         }
 
         function openContextMenu(file) {
@@ -615,8 +614,13 @@
                 actions.appendChild(createAction('add_folder', 'New Folder', triggerNewFolder));
             }
 
-            actions.appendChild(createAction('rename', 'Rename Component', triggerRename));
-            actions.appendChild(createAction('delete', 'Delete Permanently', triggerDelete, true));
+            actions.appendChild(createAction('rename', 'Rename', triggerRename));
+            
+            actions.appendChild(createAction('download', 'Download', () => {
+                showSnackbar('Download started...');
+            }));
+            
+            actions.appendChild(createAction('delete', 'Delete', triggerDelete, true));
 
             backdrop.classList.add('overlay-active');
             sheet.classList.remove('translate-y-full');
@@ -674,20 +678,17 @@
             modal.classList.remove('hidden');
             input.focus();
             
-            confirmBtn.onclick = async () => {
+            confirmBtn.onclick = () => {
                 const name = input.value;
                 if (name) {
-                    const relativePath = (state.selectedContextFile.path ? state.selectedContextFile.path + '/' : '') + name;
-                    try {
-                        const response = await fetch('/api/save', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ filePath: relativePath, content: '' })
-                        });
-                        if((await response.json()).success) {
-                            loadSystemWorkspace(); closeModal();
-                        }
-                    } catch (e) { showSnackbar("Failed to create file."); }
+                    const newFile = { id: Date.now().toString(), name, isFolder: false, content: '', path: (state.selectedContextFile.path || '') + '/' + name };
+                    if (state.selectedContextFile.isFolder) {
+                        if (!state.selectedContextFile.children) state.selectedContextFile.children = [];
+                        state.selectedContextFile.children.push(newFile);
+                    } else {
+                        state.files.push(newFile);
+                    }
+                    renderFileTree(); closeModal();
                 }
             };
         }
@@ -708,20 +709,17 @@
             modal.classList.remove('hidden');
             input.focus();
 
-            confirmBtn.onclick = async () => {
+            confirmBtn.onclick = () => {
                 const name = input.value;
                 if (name) {
-                    const relativePath = (state.selectedContextFile.path ? state.selectedContextFile.path + '/' : '') + name + '/.gitkeep';
-                    try {
-                        const response = await fetch('/api/save', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ filePath: relativePath, content: '' })
-                        });
-                        if((await response.json()).success) {
-                            loadSystemWorkspace(); closeModal();
-                        }
-                    } catch (e) { showSnackbar("Failed to construct folder structural point."); }
+                    const newFolder = { id: Date.now().toString(), name, isFolder: true, isOpen: true, children: [], path: (state.selectedContextFile.path || '') + '/' + name };
+                    if (state.selectedContextFile.isFolder) {
+                        if (!state.selectedContextFile.children) state.selectedContextFile.children = [];
+                        state.selectedContextFile.children.push(newFolder);
+                    } else {
+                        state.files.push(newFolder);
+                    }
+                    renderFileTree(); closeModal();
                 }
             };
         }
@@ -735,65 +733,49 @@
             state.isModalOpen = true;
             updateEditorReadOnly();
 
-            title.innerText = "Rename Operation";
+            title.innerText = "Rename";
             input.value = state.selectedContextFile.name;
             input.classList.remove('hidden');
-            confirmBtn.innerText = "Update Name";
+            confirmBtn.innerText = "Update";
             modal.classList.remove('hidden');
             input.focus();
             
-            confirmBtn.onclick = async () => {
+            confirmBtn.onclick = () => {
                 const name = input.value;
                 if (name) { 
-                    const baseDir = state.selectedContextFile.path.substring(0, state.selectedContextFile.path.lastIndexOf('/'));
-                    const targetNewPath = (baseDir ? baseDir + '/' : '') + name;
-                    
-                    // Simple rename: read old structure, save to new location, delete old location
-                    try {
-                        await fetch('/api/save', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ filePath: targetNewPath, content: state.selectedContextFile.content || '' })
-                        });
-                        await fetch('/api/delete', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ filePath: state.selectedContextFile.path })
-                        });
-                        forceCloseTab(state.selectedContextFile.id);
-                        loadSystemWorkspace();
-                        closeModal();
-                    } catch (e) { showSnackbar("Rename routing failure error."); }
+                    state.selectedContextFile.name = name; 
+                    renderFileTree(); 
+                    renderTabs(); 
+                    closeModal(); 
                 }
             };
         }
 
         function triggerDelete() {
             showWarningDialog(
-                "Delete Structural Item",
-                `Are you sure you want to delete ${state.selectedContextFile.name}? This action wipes files permanently off the container server instance.`,
-                "Delete Permanently",
-                async () => {
-                    try {
-                        const response = await fetch('/api/delete', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ filePath: state.selectedContextFile.path })
-                        });
-                        if ((await response.json()).success) {
-                            forceCloseTab(state.selectedContextFile.id);
-                            loadSystemWorkspace();
-                            closeModal();
-                            showSnackbar("Component eliminated from system.");
-                        }
-                    } catch (e) { showSnackbar("Deconstruction operation failed."); }
+                "Delete Item",
+                `Are you sure you want to delete ${state.selectedContextFile.name}? This action cannot be undone.`,
+                "Delete",
+                () => {
+                    const deleteById = (arr, id) => {
+                        const idx = arr.findIndex(f => f.id === id);
+                        if (idx > -1) { arr.splice(idx, 1); return true; }
+                        for (let f of arr) if (f.children && deleteById(f.children, id)) return true;
+                        return false;
+                    };
+                    deleteById(state.files, state.selectedContextFile.id);
+                    forceCloseTab(state.selectedContextFile.id);
+                    renderFileTree();
+                    closeModal();
                 }
             );
         }
 
         window.onload = () => {
-            loadSystemWorkspace();
+            renderFileTree();
+            renderTabs();
             updateEditorReadOnly();
         };
     </script>
-</body></html>
+</body>
+</html>
