@@ -1,0 +1,54 @@
+name: CodeForge Cloud Engine Live Runtime
+
+on:
+  workflow_dispatch: # Allows manual click trigger within the GitHub Actions web UI dashboard
+
+jobs:
+  run-ide-cloud:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360 # Explicitly locks runner context to the 6-hour runtime limit
+
+    steps:
+      - name: 1. Clone Source Repository Base
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 2. Initialize Java Development Kit (JDK 17)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: 3. Initialize & Cache Gradle Dependency Engine
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: 4. Inject Native Android SDK 35 Cryptographic Licensing
+        run: |
+          mkdir -p -m 0755 $ANDROID_HOME/licenses
+          echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55\nd56f5187479451eabf01fb74bf679004a47cdb88\n24333f1a63b68bfa3d3d315fbc7e67db891a60f1\n84831b9409646a918e30573bab4c9c91346d8abd\n504667f4c0de7af1a06de9f4b1727b84351f2910\n3513622d98304fc4fb558b76fb0801b96a8413d4\ne9ac30d07e0746f33c6107173e61538fed2af4da" > $ANDROID_HOME/licenses/android-sdk-license
+
+      - name: 5. Construct Core Web Framework Dependencies
+        run: |
+          npm init -y
+          npm install express
+
+      - name: 6. Spin Up Express Cloud System Background Architecture
+        run: node server.js &
+
+      - name: 7. Determine Platform Public Endpoint Authentication IP
+        id: get-ip
+        run: |
+          RUNNER_IP=$(curl -s https://icanhazip.com)
+          echo "Your Localtunnel Bypassing IP: $RUNNER_IP"
+          echo "ip=$RUNNER_IP" >> $GITHUB_OUTPUT
+
+      - name: 8. Ignite Tunnel Connection Endpoint Interface
+        run: |
+          sudo npm install -g localtunnel
+          echo "------------------------------------------------------------"
+          echo "👉 REPOSITORY RUNNER COMPILATION SECURITY ACCESS IP: ${{ steps.get-ip.outputs.ip }}"
+          echo "Copy the numeric IP address shown directly above."
+          echo "When you click the localtunnel URL below, paste this IP into the security gate block to view your IDE interface."
+          echo "------------------------------------------------------------"
+          lt --port 3000
